@@ -18,9 +18,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-jeton_api = os.environ.get("JETON_API", "")
+JETON_API = os.environ.get("JETON_API", "")
 
-if jeton_api.startswith("$"):
+if JETON_API.startswith("$"):
     print("API token has been configured properly")
 else:
     print("API token has not been configured")
