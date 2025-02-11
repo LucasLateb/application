@@ -2,6 +2,7 @@
 This module performs data loading, exploratory analysis, and
 training of a Random Forest classifier on the Titanic dataset.
 """
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -13,6 +14,16 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics import confusion_matrix
+from dotenv import load_dotenv
+
+load_dotenv()
+
+jeton_api = os.environ.get("JETON_API", "")
+
+if jeton_api.startswith("$"):
+    print("API token has been configured properly")
+else:
+    print("API token has not been configured")
 
 # os.chdir('/home/onyxia/work/application')
 TrainingData = pd.read_csv("data.csv")
